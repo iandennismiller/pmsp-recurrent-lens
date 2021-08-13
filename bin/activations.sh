@@ -4,20 +4,20 @@ function run_one {
     PMSP_RANDOM_SEED=$1 \
         PMSP_DILUTION=$2 \
         PMSP_PARTITION=$3 \
-        ./alens.sh \
+        ./bin/alens.sh \
         $4 &
 }
 
 function run_one_fig18 {
-    run_one $1 $2 $3 ./activations-fig18-dt-100.tcl
+    run_one $1 $2 $3 ./src/run-activations-fig18.tcl
 }
 
 function run_one_anchors {
-    run_one $1 $2 $3 ./activations-anchors-dt-100.tcl
+    run_one $1 $2 $3 ./src/run-activations-anchors.tcl
 }
 
 function run_one_probes {
-    run_one $1 $2 $3 ./activations-probes-dt-100.tcl
+    run_one $1 $2 $3 ./src/run-activations-probes.tcl
 }
 
 function run_one_partition_fig18 {
