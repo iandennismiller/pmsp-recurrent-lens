@@ -68,9 +68,6 @@ setObj postExampleProc { logAccuracyHook }
 # could set target history property?
 # consider testing the "-numexamples 2" and manually run through a couple
 
-# For now, manually set the epoch
-# set epoch 2000
-
 for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
     puts "value of epoch: $epoch"
 
@@ -80,8 +77,8 @@ for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
 
     # `test` doesn't provide access to hidden units via postExampleProc
     # use train instead
-    test
-    # train 1
+    # test
+    train 1
 }
 
 # saveAccuracyResults "${results_path}/accuracy.tsv"
