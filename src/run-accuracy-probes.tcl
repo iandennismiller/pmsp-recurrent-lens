@@ -68,7 +68,7 @@ setObj postExampleProc { logAccuracyHook }
 # could set target history property?
 # consider testing the "-numexamples 2" and manually run through a couple
 
-for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 100 } {
+for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
     puts "value of epoch: $epoch"
 
     # load a network that has been already trained
