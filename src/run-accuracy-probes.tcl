@@ -32,8 +32,8 @@ set results_path "${root_path}/var/${script_name}/results"
 
 set loggingInterval 1
 
-global log_accuracy_filename
-set log_accuracy_filename [open "${results_path}/accuracy-probes.tsv" w ]
+set log_accuracy_filename "${results_path}/accuracy-probes.tsv"
+file delete $log_accuracy_filename
 
 source ./network.tcl
 
@@ -63,12 +63,12 @@ setObj postExampleProc { logAccuracyHook }
 # Need to view units to be able to access the history arrays.
 # TODO: ensure it updates per example, not per batch
 # (updates 3: update after each example)
-viewUnits -updates 3
+# viewUnits -updates 3
 # viewUnits
 # could set target history property?
 # consider testing the "-numexamples 2" and manually run through a couple
 
-for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
+for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 100 } {
     puts "value of epoch: $epoch"
 
     # load a network that has been already trained
@@ -77,12 +77,10 @@ for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
 
     # `test` doesn't provide access to hidden units via postExampleProc
     # use train instead
-    # test
-    train 1
+    test
+    # train 1
 }
 
-# saveAccuracyResults "${results_path}/accuracy.tsv"
-
-close $log_accuracy_filename
+saveAccuracyResults $log_accuracy_filename
 
 exit
