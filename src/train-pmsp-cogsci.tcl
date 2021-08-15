@@ -35,10 +35,10 @@ seed $random_seed
 # unique name of this script, for naming saved weights
 set script_name "cogsci-recurrent-dt-100-dilution-$dilution_amount-seed-$random_seed-partition-$partition_id-straight-through"
 
-# all relative to ./scripts
-# set root_path "../../.."
-set root_path "."
-set examples_path "${root_path}/examples"
+# root of project is relative to this .tcl file
+set root_path "../"
+
+set examples_path "${root_path}/examples/cogsci"
 
 set weights_path "${root_path}/var/${script_name}/weights"
 set results_path "${root_path}/var/${script_name}/results"

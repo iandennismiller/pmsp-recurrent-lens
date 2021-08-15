@@ -24,7 +24,7 @@ set script_name "cogsci-recurrent-dt-100-dilution-$dilution_amount-seed-$random_
 # root of project is relative to this .tcl file
 set root_path "../"
 
-set examples_path "${root_path}/examples"
+set examples_path "${root_path}/examples/cogsci"
 # we always use an example file with dilution=3 to get all possible ancors
 set example_file "${examples_path}/cogsci-pmsp-added-partition-0-dilution-3.ex"
 
