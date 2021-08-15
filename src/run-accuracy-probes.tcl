@@ -63,7 +63,7 @@ setObj postExampleProc { logAccuracyHook }
 # Need to view units to be able to access the history arrays.
 # TODO: ensure it updates per example, not per batch
 # (updates 3: update after each example)
-# viewUnits -updates 3
+viewUnits -updates 3
 # viewUnits
 # could set target history property?
 # consider testing the "-numexamples 2" and manually run through a couple
