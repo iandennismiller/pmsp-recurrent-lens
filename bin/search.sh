@@ -4,9 +4,8 @@ function run_alens {
     PMSP_RANDOM_SEED=$1 \
         PMSP_DILUTION=$2 \
         PMSP_PARTITION=$3 \
-        PMSP_FREQ=$4
-        ./bin/alens.sh -batch \
-        $5 &
+        PMSP_FREQ=$4 \
+        ./bin/alens-batch.sh $5 &
 }
 
 function search_one_dilution {
