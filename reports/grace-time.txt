@@ -1,0 +1,49 @@
+PMSP_RANDOM_SEED=1 \
+        PMSP_DILUTION=3 \
+        PMSP_PARTITION=0 \
+        ./bin/alens-batch.sh \
+        ./src/check-grace-time.tcl
+                            LENS Version 2.63a
+                 Copyright (C) 1998-2004  Douglas Rohde,
+      Carnegie Mellon University, Center for the Neural Basis of Cognition
+       Please send comments, questions, and bugs to dr+lens@tedlab.mit.edu
+
+Random seed: 1
+Dilution amount: 3
+Partition ID: 0
+setObj vocab_anchors.graceTime 1.899
+Performing 1 updates using Doug's Momentum...
+__Update____Error___UnitCost__Wgt.Cost__Grad.Lin__TimeUsed__TimeLeft__
+   2000)   0.02917   0.00000   19613.9      -          24s        0s
+Test results on 2998 examples, 158720 ticks:
+                     Network      phono_onset  phono_vowel  phono_coda  
+Error total:         20.2239      8.08133      5.27228      6.88476
+Error per example:   0.00675      0.00270      0.00176      0.00230
+Error per tick:      0.00013      0.00005      0.00003      0.00004
+Unit cost per tick:  0.00000
+Output unit criterion reached on 2830 examples (94.40%)
+Test(percentCorrect): 94.3963
+setObj vocab_anchors.graceTime 1.990
+Performing 1 updates using Doug's Momentum...
+__Update____Error___UnitCost__Wgt.Cost__Grad.Lin__TimeUsed__TimeLeft__
+   2000)   0.00297   0.00000   19613.9   0.97420       24s        0s
+Test results on 2998 examples, 158719 ticks:
+                     Network      phono_onset  phono_vowel  phono_coda  
+Error total:         20.2227      8.08129      5.27221      6.88472
+Error per example:   0.00675      0.00270      0.00176      0.00230
+Error per tick:      0.00013      0.00005      0.00003      0.00004
+Unit cost per tick:  0.00000
+Output unit criterion reached on 2830 examples (94.40%)
+Test(percentCorrect): 94.3963
+setObj vocab_anchors.graceTime 1.991
+Performing 1 updates using Doug's Momentum...
+__Update____Error___UnitCost__Wgt.Cost__Grad.Lin__TimeUsed__TimeLeft__
+   2000)   0.00000   0.00000   19613.9      -          23s        0s
+Test results on 2998 examples, 158719 ticks:
+                     Network      phono_onset  phono_vowel  phono_coda  
+Error total:         20.2245      8.08124      5.27236      6.88497
+Error per example:   0.00675      0.00270      0.00176      0.00230
+Error per tick:      0.00013      0.00005      0.00003      0.00004
+Unit cost per tick:  0.00000
+Output unit criterion reached on 2830 examples (94.40%)
+Test(percentCorrect): 94.3963

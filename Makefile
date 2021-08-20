@@ -22,3 +22,9 @@ examples:
 		bin/create-example-file.py create_probes --frequency 1.0 > \
 		examples/probes-new-2021-08-04.ex
 
+grace-time:
+	PMSP_RANDOM_SEED=1 \
+        PMSP_DILUTION=3 \
+        PMSP_PARTITION=0 \
+        ./bin/alens-batch.sh \
+        ./src/check-grace-time.tcl
