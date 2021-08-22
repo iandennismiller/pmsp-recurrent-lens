@@ -38,7 +38,7 @@ set script_name "pmsp-recurrent-dt-100-10k-dilution-$dilution_amount-seed-$rando
 # root of project is relative to this .tcl file
 set root_path "../"
 
-set examples_path "${root_path}/examples/cogsci"
+set examples_path "${root_path}/examples"
 
 set weights_path "${root_path}/var/${script_name}/weights"
 set results_path "${root_path}/var/${script_name}/results"
@@ -68,7 +68,7 @@ setObj postEpochProc { save_weights_hook }
 # NB: "error is injected only for the second unit of time; units receive no direct pressure to be correct for the first unit of time (although back-propagated internal error causes weight changes that encourage units to move towards the appropriate states as early as possible"
 # this prevents error from being computed until after the graceTime has passed.
 
-set pmsp_example_file "${examples_path}/pmsp-train-the-normalized.ex"
+set pmsp_example_file "${examples_path}/pmsp/pmsp-train-the-normalized.ex"
 
 loadExamples $pmsp_example_file -s "vocab_pmsp"
 exampleSetMode "vocab_pmsp" PERMUTED
