@@ -13,19 +13,19 @@ function run_one_seed {
     RANDOM_SEED=$1
 
     # dilution 1
-    run_one_partition 1 0 $RANDOM_SEED &
-    run_one_partition 1 1 $RANDOM_SEED &
-    run_one_partition 1 2 $RANDOM_SEED &
+    run_one_partition 1 0 $RANDOM_SEED > /dev/null &
+    run_one_partition 1 1 $RANDOM_SEED > /dev/null &
+    run_one_partition 1 2 $RANDOM_SEED > /dev/null &
 
     # dilution 2
-    run_one_partition 2 0 $RANDOM_SEED &
-    run_one_partition 2 1 $RANDOM_SEED &
-    run_one_partition 2 2 $RANDOM_SEED &
+    run_one_partition 2 0 $RANDOM_SEED > /dev/null &
+    run_one_partition 2 1 $RANDOM_SEED > /dev/null &
+    run_one_partition 2 2 $RANDOM_SEED > /dev/null &
 
     # dilution 3
-    run_one_partition 3 0 $RANDOM_SEED &
-    run_one_partition 3 1 $RANDOM_SEED &
-    run_one_partition 3 2 $RANDOM_SEED &
+    run_one_partition 3 0 $RANDOM_SEED > /dev/null &
+    run_one_partition 3 1 $RANDOM_SEED > /dev/null &
+    run_one_partition 3 2 $RANDOM_SEED > /dev/null &
 }
 
 run_one_seed 1
