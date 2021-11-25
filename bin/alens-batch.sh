@@ -3,7 +3,8 @@
 if [ $(uname -n) == "kings" ]; then
     export LENSDIR=/opt/Lens-linux
 else
-    export LENSDIR=/app/Lens-linux
+    # export LENSDIR=/app/Lens-linux
+    export LENSDIR=/home/lens/lens-linux
 fi
 
 export PATH=${PATH}:${LENSDIR}/Bin

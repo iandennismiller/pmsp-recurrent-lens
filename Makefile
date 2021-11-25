@@ -1,4 +1,4 @@
-include .settings.mk
+# include .settings.mk
 
 DATESTAMP=$(shell date +'%Y-%m-%d')
 
@@ -28,3 +28,22 @@ grace-time:
         PMSP_PARTITION=0 \
         ./bin/alens-batch.sh \
         ./src/check-grace-time.tcl
+
+start-lens:
+	docker run -d --rm \
+		--name lens \
+		-p 5901:5901 \
+		-v $(PWD):/home/lens/Work/pmsp-recurrent-lens \
+		iandennismiller/lens
+
+stop-lens:
+	docker container stop lens
+
+run-train-cogsci:
+	docker exec lens sudo -u lens /bin/bash -c '\
+		cd /home/lens/Work/pmsp-recurrent-lens && \
+		PMSP_RANDOM_SEED=1 \
+		PMSP_DILUTION=0 \
+		PMSP_PARTITION=0 \
+		./bin/alens-batch.sh \
+			./src/train-pmsp-cogsci.tcl'

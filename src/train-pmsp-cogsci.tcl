@@ -38,7 +38,7 @@ set script_name "cogsci-recurrent-dt-100-dilution-$dilution_amount-seed-$random_
 # root of project is relative to this .tcl file
 set root_path "../"
 
-set examples_path "${root_path}/examples/cogsci"
+set examples_path "${root_path}/examples"
 
 set weights_path "${root_path}/var/${script_name}/weights"
 set results_path "${root_path}/var/${script_name}/results"
@@ -76,13 +76,13 @@ setObj vocab_pmsp.minTime 2.0
 setObj vocab_pmsp.maxTime 2.0
 setObj vocab_pmsp.graceTime 1.0
 
-set cogsci_example_file "${examples_path}/cogsci-pmsp-added-partition-$partition_id-dilution-${dilution_amount}.ex"
+# set cogsci_example_file "${examples_path}/cogsci-pmsp-added-partition-$partition_id-dilution-${dilution_amount}.ex"
 
-loadExamples $cogsci_example_file -s "vocab_cogsci"
-exampleSetMode "vocab_cogsci" PERMUTED
-setObj vocab_cogsci.minTime 2.0
-setObj vocab_cogsci.maxTime 2.0
-setObj vocab_cogsci.graceTime 1.0
+# loadExamples $cogsci_example_file -s "vocab_cogsci"
+# exampleSetMode "vocab_cogsci" PERMUTED
+# setObj vocab_cogsci.minTime 2.0
+# setObj vocab_cogsci.maxTime 2.0
+# setObj vocab_cogsci.graceTime 1.0
 
 ###
 # Training: PMSP
@@ -108,8 +108,8 @@ train 1800
 ###
 # Training: CogSci Replication
 
-useTrainingSet "vocab_cogsci"
+# useTrainingSet "vocab_cogsci"
 
-train 2000
+# train 2000
 
 exit
