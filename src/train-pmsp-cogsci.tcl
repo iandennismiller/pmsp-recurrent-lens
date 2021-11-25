@@ -68,7 +68,7 @@ setObj postEpochProc { save_weights_hook }
 # NB: "error is injected only for the second unit of time; units receive no direct pressure to be correct for the first unit of time (although back-propagated internal error causes weight changes that encourage units to move towards the appropriate states as early as possible"
 # this prevents error from being computed until after the graceTime has passed.
 
-set pmsp_example_file "${examples_path}/pmsp-train-the-normalized.ex"
+set pmsp_example_file "${examples_path}/pmsp/pmsp-train-the-normalized.ex"
 
 loadExamples $pmsp_example_file -s "vocab_pmsp"
 exampleSetMode "vocab_pmsp" PERMUTED
@@ -76,13 +76,13 @@ setObj vocab_pmsp.minTime 2.0
 setObj vocab_pmsp.maxTime 2.0
 setObj vocab_pmsp.graceTime 1.0
 
-# set cogsci_example_file "${examples_path}/cogsci-pmsp-added-partition-$partition_id-dilution-${dilution_amount}.ex"
+set cogsci_example_file "${examples_path}/cogsci/cogsci-pmsp-added-partition-$partition_id-dilution-${dilution_amount}.ex"
 
-# loadExamples $cogsci_example_file -s "vocab_cogsci"
-# exampleSetMode "vocab_cogsci" PERMUTED
-# setObj vocab_cogsci.minTime 2.0
-# setObj vocab_cogsci.maxTime 2.0
-# setObj vocab_cogsci.graceTime 1.0
+loadExamples $cogsci_example_file -s "vocab_cogsci"
+exampleSetMode "vocab_cogsci" PERMUTED
+setObj vocab_cogsci.minTime 2.0
+setObj vocab_cogsci.maxTime 2.0
+setObj vocab_cogsci.graceTime 1.0
 
 ###
 # Training: PMSP

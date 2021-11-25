@@ -1,4 +1,4 @@
-# include .settings.mk
+include .settings.mk
 
 DATESTAMP=$(shell date +'%Y-%m-%d')
 
