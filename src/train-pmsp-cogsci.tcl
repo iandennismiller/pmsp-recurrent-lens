@@ -108,8 +108,8 @@ train 1800
 ###
 # Training: CogSci Replication
 
-# useTrainingSet "vocab_cogsci"
+useTrainingSet "vocab_cogsci"
 
-# train 2000
+train 2000
 
 exit
