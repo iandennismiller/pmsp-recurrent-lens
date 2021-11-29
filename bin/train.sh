@@ -5,7 +5,7 @@ function run_one_partition {
     PARITION=$2
 
     PMSP_RANDOM_SEED=1 PMSP_DILUTION=$DILUTION PMSP_PARTITION=$PARITION \
-        ./bin/alens.sh ./src/train-pmsp-cogsci.tcl
+        ./bin/alens-batch.sh ./src/train-pmsp-cogsci.tcl
 }
 
 # dilution 1

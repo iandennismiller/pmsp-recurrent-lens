@@ -33,7 +33,7 @@ puts "Partition ID: $partition_id"
 seed $random_seed
 
 # unique name of this script, for naming saved weights
-set script_name "cogsci-recurrent-dt-100-dilution-$dilution_amount-seed-$random_seed-partition-$partition_id-straight-through"
+set script_name "cogsci-recurrent-dt-100-dilution-$dilution_amount-seed-$random_seed-partition-$partition_id"
 
 # root of project is relative to this .tcl file
 set root_path "../"
@@ -110,6 +110,6 @@ train 1800
 
 useTrainingSet "vocab_cogsci"
 
-train 2000
+train 3000
 
 exit
