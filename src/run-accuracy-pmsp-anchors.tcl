@@ -5,8 +5,8 @@
 source ./accuracy.tcl
 
 set dt 100
-set start_epoch 0
-set end_epoch 3999
+set start_epoch 1950
+set end_epoch 2100
 
 set random_seed $::env(PMSP_RANDOM_SEED)
 puts "Random seed: $random_seed"
@@ -19,13 +19,13 @@ puts "Partition ID: $partition_id"
 seed $random_seed
 
 # unique name of this script, for naming saved weights
-set script_name "cogsci-recurrent-dt-100-dilution-$dilution_amount-seed-$random_seed-partition-$partition_id-straight-through"
+set script_name "cogsci-recurrent-dt-100-dilution-$dilution_amount-seed-$random_seed-partition-$partition_id"
 
 # root of project is relative to this .tcl file
 set root_path "../"
 
 set examples_path "${root_path}/examples/cogsci"
-# we always use an example file with dilution=3 to get all possible ancors
+# we always use an example file with dilution=3 to get all possible anchors
 set example_file "${examples_path}/cogsci-pmsp-added-partition-0-dilution-3.ex"
 
 set weights_path "${root_path}/var/${script_name}/weights"
@@ -64,11 +64,12 @@ setObj postExampleProc { logAccuracyHook }
 # Need to view units to be able to access the history arrays.
 # TODO: ensure it updates per example, not per batch
 # (updates 3: update after each example)
-# viewUnits -updates 3
+viewUnits -updates 3
 # viewUnits
 # could set target history property?
 # consider testing the "-numexamples 2" and manually run through a couple
 
+puts "start"
 for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
     puts "value of epoch: $epoch"
 
@@ -78,10 +79,11 @@ for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
 
     # `test` doesn't provide access to hidden units via postExampleProc
     # use train instead
-    test
-    # train 1
+    # test
+    train 1
 }
 
+puts "end"
 saveAccuracyResults $log_accuracy_filename
 
 exit

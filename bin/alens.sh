@@ -1,9 +1,11 @@
 #!/bin/bash
 
-if [ $(uname -n) == "kings" ]; then
+if [ "$(uname -n)" == "kings" ]; then
     export LENSDIR=/opt/Lens-linux
-else
+elif [ "$(uname -n)" == "armstronglab" ]; then
     export LENSDIR=/app/Lens-linux
+else
+    export LENSDIR=/home/lens/lens-linux
 fi
 
 export PATH=${PATH}:${LENSDIR}/Bin

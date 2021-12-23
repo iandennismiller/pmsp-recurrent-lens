@@ -31,19 +31,26 @@ grace-time:
 
 start-lens:
 	docker run -d --rm \
-		--name lens \
-		-p 5901:5901 \
+		--name lens-recurrent \
+		-p 5902:5901 \
 		-v $(PWD):/home/lens/Work/pmsp-recurrent-lens \
 		iandennismiller/lens
 
+#		-p 5901:5901 \
+
 stop-lens:
-	docker container stop lens
+	docker container stop lens-recurrent
 
 run-train-cogsci:
-	docker exec lens sudo -u lens /bin/bash -c '\
+	docker exec lens-recurrent sudo -u lens /bin/bash -c '\
 		cd /home/lens/Work/pmsp-recurrent-lens && \
 		PMSP_RANDOM_SEED=1 \
 		PMSP_DILUTION=0 \
 		PMSP_PARTITION=0 \
 		./bin/alens-batch.sh \
 			./src/train-pmsp-cogsci.tcl'
+
+run-accuracy:
+	docker exec lens-recurrent sudo -u lens /bin/bash -c '\
+		cd /home/lens/Work/pmsp-recurrent-lens && \
+			./bin/accuracy.sh'
