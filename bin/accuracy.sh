@@ -4,7 +4,7 @@ function run_one {
     PMSP_RANDOM_SEED=$1 \
         PMSP_DILUTION=$2 \
         PMSP_PARTITION=$3 \
-        ./bin/alens.sh \
+        ./bin/alens-batch.sh \
         $4 &
 }
 
@@ -25,9 +25,15 @@ function run_one_pmsp_anchors {
 
 function run_one_partition_pmsp_anchors_seed {
     SEED=$1
+    run_one_pmsp_anchors $SEED 1 0
     run_one_pmsp_anchors $SEED 1 1
-    # run_one_pmsp_anchors $SEED 1 1
-    # run_one_pmsp_anchors $SEED 1 1
+    run_one_pmsp_anchors $SEED 1 2
+    run_one_pmsp_anchors $SEED 2 0
+    run_one_pmsp_anchors $SEED 2 1
+    run_one_pmsp_anchors $SEED 2 2
+    run_one_pmsp_anchors $SEED 3 0
+    run_one_pmsp_anchors $SEED 3 1
+    run_one_pmsp_anchors $SEED 3 2
 }
 
 function run_one_partition_pmsp_anchors_partition {

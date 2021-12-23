@@ -46,6 +46,9 @@ set results_path "${root_path}/var/${script_name}/results"
 file mkdir $results_path
 file mkdir $weights_path
 
+set log_accuracy_filename "${results_path}/accuracy-pmsp-anchors.tsv"
+file delete $log_accuracy_filename
+
 source ./network.tcl
 source ./parameters.tcl
 
@@ -58,9 +61,9 @@ proc save_weights_hook {} {
 setObj postEpochProc { save_weights_hook }
 
 # Log accuracy throughout training
-# source "accuracy.tcl"
-# set loggingInterval 1
-# setObj postExampleProc { logAccuracyHook }
+source "accuracy.tcl"
+set loggingInterval 10
+setObj postExampleProc { logAccuracyHook }
 
 ###
 # Examples
@@ -111,5 +114,8 @@ train 1800
 useTrainingSet "vocab_cogsci"
 
 train 3000
+
+puts "end"
+saveAccuracyResults $log_accuracy_filename
 
 exit

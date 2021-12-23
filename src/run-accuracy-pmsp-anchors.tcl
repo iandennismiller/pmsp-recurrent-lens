@@ -7,6 +7,7 @@ source ./accuracy.tcl
 set dt 100
 set start_epoch 1950
 set end_epoch 2100
+# set end_epoch 1951
 
 set random_seed $::env(PMSP_RANDOM_SEED)
 puts "Random seed: $random_seed"
@@ -64,7 +65,7 @@ setObj postExampleProc { logAccuracyHook }
 # Need to view units to be able to access the history arrays.
 # TODO: ensure it updates per example, not per batch
 # (updates 3: update after each example)
-viewUnits -updates 3
+# viewUnits -updates 3
 # viewUnits
 # could set target history property?
 # consider testing the "-numexamples 2" and manually run through a couple
@@ -79,8 +80,8 @@ for { set epoch $start_epoch } { $epoch <= $end_epoch } { incr epoch 1 } {
 
     # `test` doesn't provide access to hidden units via postExampleProc
     # use train instead
-    # test
-    train 1
+    test
+    # train 1
 }
 
 puts "end"

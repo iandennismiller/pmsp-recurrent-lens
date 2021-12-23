@@ -2,7 +2,6 @@
 # Network Architecture
 
 set dt 100
-# set dt 1
 
 addNet "pmspRecurrent" -i 2 -t $dt CONTINUOUS
 
