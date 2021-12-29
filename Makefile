@@ -54,3 +54,7 @@ run-accuracy:
 	docker exec lens-recurrent sudo -u lens /bin/bash -c '\
 		cd /home/lens/Work/pmsp-recurrent-lens && \
 			./bin/accuracy.sh'
+
+requirements:
+	pip install pandas click jsfsdb
+	pip install ~/Work/word-learning-jspsych/src/forbidden_integers

@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
+import os
+
 import sys
-sys.path.insert(0, '/home/idm/Work/word-learning-jspsych/src')
-sys.path.insert(1, '/home/idm/Work/pmsp-torch/src')
+sys.path.insert(0, os.path.expanduser('~/Work/word-learning-jspsych/src/warping_dilution_study'))
+sys.path.insert(1, os.path.expanduser('~/Work/pmsp-torch/src'))
 
 import configparser
-import os
 from jsfsdb import jsfsdb
 import click
 import pandas as pd
 
+from warping_dilution_study.models.study import Study
 from warping_dilution_study.models.partition import PartitionMap
 from warping_dilution_study.models.stimuli import StimulusDatabase
 
@@ -18,11 +20,10 @@ from pmsp.english.graphemes import Graphemes
 from pmsp.english.phonemes import Phonemes
 
 
-stimulus_csv_path = "/home/idm/Work/word-learning-jspsych/usr/stimulus-database/warping-dilution-full.csv"
-frequency_filename = "/home/idm/Work/pmsp-torch/src/pmsp/data/word-frequencies.csv"
+stimulus_csv_path = os.path.expanduser("~/Work/word-learning-jspsych/usr/stimulus-database/warping-dilution-full.csv")
+frequency_filename = os.path.expanduser("~/Work/pmsp-torch/src/pmsp/data/word-frequencies.csv")
 
 config_filename = os.environ["SETTINGS"]
-# config_filename = "/home/idm/.dilution-deadline-study.ini"
 
 cfg = configparser.ConfigParser()
 cfg.read(config_filename)
@@ -36,8 +37,13 @@ def generate(partition_map_id, partition_map_list, dilution, frequency):
 
     count = 0
 
+    study = Study(
+        dbpath=cfg['DEFAULT']['dbpath'],
+        spreadsheet=stimulus_csv_path,
+    )
+
     partition_map = PartitionMap(
-        stimulus_database=StimulusDatabase(spreadsheet=stimulus_csv_path),
+        study=study,
         partition_map_id=partition_map_id,
     )
 
